@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handwritten Digit Recognizer</title>
+  <meta name="description" content="Draw a digit and a neural network trained on MNIST recognizes it, entirely in your browser.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Handwritten Digit Recognizer</h1>
+      <p id="status" class="status">Loading model...</p>
+    </header>
+
+    <section class="layout">
+      <div class="pad-area">
+        <!-- 숫자를 그리는 그림판 -->
+        <canvas id="pad" width="280" height="280" aria-label="Drawing pad"></canvas>
+        <button id="clear" type="button">Clear</button>
+      </div>
+
+      <div class="result-area">
+        <div class="result-box">
+          <div id="result" class="result">?</div>
+          <div id="confidence" class="confidence">Draw a digit</div>
+        </div>
+
+        <!-- 각 숫자별 확률 -->
+        <div id="bars" class="bars"></div>
+
+        <!-- 모델이 실제로 보는 28x28 입력 이미지 -->
+        <div class="preview-box">
+          <canvas id="preview" width="28" height="28"></canvas>
+          <span>Model input (28×28)</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        A 784-256-128-10 neural network trained on MNIST (98.1% test accuracy).
+        Everything runs in your browser — no server.
+      </p>
+    </footer>
+  </main>
+
+  <script src="recognizer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
